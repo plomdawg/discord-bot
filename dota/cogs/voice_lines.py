@@ -82,7 +82,7 @@ class DotaVoiceLinesCog(commands.Cog):
 
             elif text.lower().startswith("hero"):
                 # Split off the prefix.
-                hero_name = text.split(' ', 1)[1]
+                hero_name = text.split(' ', 1)[1].title()
                 # Get a random response from the given hero that contains the text.
                 responses, index = self.get_voice_responses(
                     name=hero_name, index=index)

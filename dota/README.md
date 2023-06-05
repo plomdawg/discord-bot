@@ -6,18 +6,22 @@
 
 ### Voice Lines
 
-The voice lines feature allows users to play audio clips of voice responses from Dota 2 heroes. Here's how the bot responds to different types of messages:
+Users can play voice responses from Dota 2 heroes. Here's how the bot responds to different types of messages:
 
-- If the message is an exact match for a response, the bot will play that response in the user's voice channel.
-- If the message starts with "dota" (e.g., "dota haha"), the bot will play a random response from any hero that contains the text.
-- If the message starts with "hero" (e.g., "hero juggernaut"), the bot will play a random response from the specified hero.
-- If the message ends with a number (e.g., "dota haha 2"), the bot will play the nth response in the query.
-
-Responses can be searched for by either the full quote with exact punctuation (e.g., "Haha!") or by a partial quote prefixed by "dota" (e.g., "dota haha").
+- **Exact match** plays a random response that matches text
+  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/7f4b5f10-6e68-4933-9cef-b40d5c623154)
+- **Prefixed with `dota`** plays a random response that contains the text
+  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/df1d665a-ea4d-468f-afe0-aec034bfd940)
+- **Prefixed with `hero`** - plays a random response from the given hero
+  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/437053c7-8987-462f-804b-d8d95d354493)
 
 ### Shopkeeper's Quiz
 
-The Shopkeeper's Quiz is an interactive game where users have to guess Dota 2 heroes, abilities, and items based on their scrambled names. The quiz consists of several rounds, and each round follows these four phases:
+The Shopkeeper's Quiz is an interactive game where users have to guess Dota 2 heroes, abilities, and items based on their scrambled names.
+
+![image](https://github.com/plomdawg/discord-bot/assets/6510862/263063ae-1156-41c6-841c-2bb90e766b95)
+
+The quiz consists of several rounds, and each round follows these four phases:
 
 1. The bot shows a hard scramble of the word without the category.
 2. The bot shows a hard scramble with the category hint.
@@ -44,12 +48,14 @@ Enjoy!
 
 The bot consists of several Python files, each handling specific responsibilities:
 
-- `dotabot.py`: Main script responsible for loading and running the cogs.
-- `wiki.py`: A utility cog that handles the Dota 2 wiki data, used by other cogs.
-- `voice_lines.py`: A cog dedicated to the voice lines feature.
-- `quiz.py`: A cog responsible for managing and running the Shopkeeper's Quiz.
-- `dota_wiki.py`: A script used to scrape the Dota 2 wiki for data.
-
+- [cogs/database.py](database.py): A cog that keeps track of users' scores.
+- [cogs/emojis.py](emojis.py): A cog that handles the emoji database.
+- [cogs/help.py](help.py): A cog responsible for the `/help` command.
+- [cogs/quiz.py](quiz.py): A cog responsible for managing and running the Shopkeeper's Quiz.
+- [cogs/voice_lines.py](voice_lines.py): A cog dedicated to the voice lines feature.
+- [cogs/wiki.py](cogs/wiki.py): A utility cog that handles the Dota 2 wiki data, used by other cogs.
+- [dotabot.py](dotabot.py): Main script responsible for loading and running the cogs.
+- [dota_wiki.py](dota_wiki.py): A script used to scrape the Dota 2 wiki for data.
 
 ## Scraping data from dota wiki
 
