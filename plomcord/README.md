@@ -20,7 +20,7 @@ Here is a list of functions provided by plomcord:
 - `add_reactions(message, emojis)`: Adds emojis to a message, ignoring NotFound errors.
 - `delete_message(message)`: Deletes a message, ignoring NotFound errors.
 - `set_activity(bot, activity: str)`: Sets the bot's activity based on a string.
-- `send_embed(channel, color=None, footer=None, footer_icon=None, subtitle=None, subtext=None, text=None, title=None, thumbnail=None)`: Sends a message to a channel, and returns the discord.Message of the sent message.
+- `send_embed(channel, color=None, footer=None, footer_icon=None, subtitle=None, subtext=None, text=None, title=None, thumbnail=None)`: Sends a message to a channel, and returns the sent message.
 
 
 # Example Usage
