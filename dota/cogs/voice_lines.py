@@ -31,11 +31,7 @@ class DotaVoiceLinesCog(commands.Cog):
         self.dota_wiki = self.bot.get_cog('DotaWikiCog')
         self.database = self.bot.get_cog('Database')
         self.audio = self.bot.get_cog('AudioCog')
-        print(self.dota_wiki)
-        print(self.database)
-        print(self.audio)
-
-        # self.database.create("dota-voice-lines")
+        self.emojis = self.bot.get_cog('Emojis')
 
         self.db_connection = sqlite3.connect("dota-responses.sqlite")
         self.db_cursor = self.db_connection.cursor()
@@ -110,7 +106,8 @@ class DotaVoiceLinesCog(commands.Cog):
     async def respond(self, message, responses, index, forward=True):
         name, response, url, text, thumbnail = responses[index]
         text_channel = message.channel
-        text = f"[{text} ({name})]({response})"
+        emoji = self.emojis.get(name)
+        text = f"{emoji} [**{name}**: {text}]({response})"
         footer = f"voice line {index+1} out of {len(responses)}"
         warning_message = None
 
