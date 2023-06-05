@@ -25,6 +25,6 @@ This repo is an effort to consolidate my bots into a single codebase.
 
 ## Bots
 
-- [**dotabot**:](dotabot) plays Dota 2 voice lines & Shopkeeper's Quiz - [original repo](https://github.com/plomdawg/dotabot)
+- [**dotabot**:](dota) plays Dota 2 voice lines & Shopkeeper's Quiz - [original repo](https://github.com/plomdawg/dotabot)
 - **musicbot**: plays music from youtube/spotify - [original repo](https://github.com/plomdawg/plombot)
 - **ttsbot**: plays text-to-speech clips from Elevenlabs - [original repo](https://github.com/plomdawg/discord-ai-voice-bot)
