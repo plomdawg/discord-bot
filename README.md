@@ -25,43 +25,6 @@ This repo is an effort to consolidate my bots into a single codebase.
 
 ## Bots
 
-- **dotabot** plays Dota 2 voice lines - [src](https://github.com/plomdawg/dotabot)
-- **musicbot** plays music from youtube - [src](https://github.com/plomdawg/plombot)
-- **ttsbot** plays text clips from Elevenlabs - [src](https://github.com/plomdawg/discord-ai-voice-bot)
-
-## Notes
-
-each bot has a different list of:
-- secret tokens
-- permissions needed
-- commands
-
----
-
-plombot
-- downloading mp3s from youtube
-- database containing song playcount
-- database containing user's Spotify IDs?
-
-
-dotabot
-- downloading mp3s from url
-- database mapping of hero names to mp3s
-- database containing quiz leaderboard
-- database containing user's steam IDs
-
-
-
-ai voice bot
-- downloading mp3s from url
-- database containing metrics (per use cost, voice popularity, etc)
-
----
-
-shared things:
-- playing mp3s in voice channel with a queue
-- user in voice channel check
-- database with guild settings (volume, etc)
-- error handling
-- chat formatting
-- logging
+- [**dotabot**:](dotabot) plays Dota 2 voice lines & Shopkeeper's Quiz - [original repo](https://github.com/plomdawg/dotabot)
+- **musicbot**: plays music from youtube/spotify - [original repo](https://github.com/plomdawg/plombot)
+- **ttsbot**: plays text-to-speech clips from Elevenlabs - [original repo](https://github.com/plomdawg/discord-ai-voice-bot)

@@ -4,6 +4,9 @@ import sys
 
 import discord
 from discord.commands.context import ApplicationContext
+
+# hacky way to import plomcord
+sys.path.append(".") # Adds higher directory to python modules path.
 import plomcord
 
 # Get secret tokens from environment variables.

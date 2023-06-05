@@ -38,7 +38,7 @@ class DotaWikiCog(commands.Cog):
         self.bot = bot
 
         # Load the json file.
-        with open("dota_wiki.json", "r") as f:
+        with open("dota/dota_wiki.json", "r") as f:
             self.data = json.load(f)
 
         self.heroes = [Hero(hero) for hero in self.data["heroes"]]
