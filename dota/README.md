@@ -9,15 +9,15 @@
 Users can play voice responses from Dota 2 heroes. Here's how the bot responds to different types of messages:
 
 - **Exact match** plays a random response that matches text
-  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/7f4b5f10-6e68-4933-9cef-b40d5c623154)
+    - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/7f4b5f10-6e68-4933-9cef-b40d5c623154)
 - **Prefixed with `dota`** plays a random response that contains the text
-  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/df1d665a-ea4d-468f-afe0-aec034bfd940)
+    - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/df1d665a-ea4d-468f-afe0-aec034bfd940)
 - **Prefixed with `hero`** - plays a random response from the given hero
-  - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/437053c7-8987-462f-804b-d8d95d354493)
+    - ![image](https://github.com/plomdawg/discord-bot/assets/6510862/437053c7-8987-462f-804b-d8d95d354493)
 
 ### Shopkeeper's Quiz
 
-The Shopkeeper's Quiz is an interactive game where users have to guess Dota 2 heroes, abilities, and items based on their scrambled names.
+The Shopkeeper's Quiz is an interactive game where users have to guess Dota 2 heroes, abilities, and items based on their scrambled names. 
 
 ![image](https://github.com/plomdawg/discord-bot/assets/6510862/263063ae-1156-41c6-841c-2bb90e766b95)
 
