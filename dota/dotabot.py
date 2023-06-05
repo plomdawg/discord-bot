@@ -49,13 +49,13 @@ class DotaBot(discord.Bot):
 
         # Load cogs.
         self.load_extension('cogs.audio')
-        self.load_extension('cogs.dota.wiki')
-        self.load_extension('cogs.dota.emojis')
-        self.load_extension('cogs.dota.voice_lines')
-        self.load_extension('cogs.dota.quiz')
-        self.load_extension('cogs.dota.help')
-        self.load_extension('cogs.dota.database')
         self.load_extension('cogs.error_handler')
+        self.load_extension('dota.cogs.wiki')
+        self.load_extension('dota.cogs.database')
+        self.load_extension('dota.cogs.emojis')
+        self.load_extension('dota.cogs.quiz')
+        self.load_extension('dota.cogs.help')
+        self.load_extension('dota.cogs.voice_lines')
 
 
         @self.event
