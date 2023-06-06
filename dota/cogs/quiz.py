@@ -6,6 +6,7 @@ import time
 import discord
 from discord.commands import slash_command
 from discord.ext import commands
+import plomcord
 
 # Pictures used for the embedded messages.
 SHOPKEEPER_IMAGE = "https://i.imgur.com/Xyf1VjQ.png"
@@ -139,7 +140,7 @@ class Quiz:
 
         # Send a message.
         text = f"Starting round **{self.round_number}**, sit tight!"
-        message = await self.bot.send_embed(self.channel, text=text)
+        message = await plomcord.send_embed(self.channel, text=text)
 
         # Grab the next word.
         self.next_word()
@@ -283,7 +284,7 @@ class Quiz:
                 )
 
         # Send the game over message.
-        message = await self.bot.send_embed(
+        message = await plomcord.send_embed(
             channel=self.channel,
             title="Shopkeeper's Quiz Results",
             text=text,
@@ -398,7 +399,7 @@ class ShopkeeperQuiz(commands.Cog):
 
     @ slash_command(name="quiz", description="Play the Shopkeeper's quiz")
     async def quiz(self, ctx):
-        await self.bot.send_embed(channel=ctx, text="Starting the quiz!")
+        await plomcord.send_embed(channel=ctx, text="Starting the quiz!")
         await self.shopkeeper_quiz(channel=ctx.channel, bot=ctx.bot)
 
 
