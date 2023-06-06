@@ -10,6 +10,7 @@ import plomcord
 
 # Pictures used for the embedded messages.
 SHOPKEEPER_IMAGE = "https://i.imgur.com/Xyf1VjQ.png"
+SHOPKEEPER_SAD_IMAGE = "https://i.imgur.com/YNEgwBb.png"
 UNKNOWN_IMAGE = "https://static.wikia.nocookie.net/dota2_gamepedia/images/5/5d/Unknown_Unit_icon.png/revision/latest/scale-to-width-down/128?cb=20170416184928"
 
 
@@ -237,58 +238,64 @@ class Quiz:
 
     async def end(self):
         """ Handles a game over. """
+        # Find the winners and losers. There may be more than one winner if tied.
+        winners = []
+        losers = []
+
         # Find the top score.
         try:
             top_score = max(self.scores.values())
         except ValueError:
-            top_score = 0
-            return
-
-        # Find the winners and losers. There may be more than one winner if tied.
-        winners = []
-        losers = []
-        for user, score in self.scores.items():
-            if score == top_score:
-                winners.append(user)
-            else:
-                losers.append(user)
-            # Increment user's gold amounts in the database.
-            self.bot.database.user_add_gold(user, score)
-
-        # If there are no winners, everybody lost!
-        if len(winners) == 0:
-            text = "Everybody lost!"
-
-        # Single winner.
-        elif len(winners) == 1:
-            text = "Winner: **{}** earned **{}** gold with {} answers!\n".format(
-                winners[0].display_name,
-                top_score,
-                self.correct_answers[winners[0]]
-            )
-
-        # Multiple winners!
+            top_score = -1
+        
+        # If nobody answered, use a different thumbnail.
+        if top_score == -1:
+            text = "Nobody played!"
+            thumbnail = SHOPKEEPER_SAD_IMAGE
         else:
-            text = f"It's a tie! The following players earned **{top_score}** gold:\n"
-            for winner in winners:
-                text += " -- {}\n".format(winner)
+            thumbnail = SHOPKEEPER_IMAGE
+            for user, score in self.scores.items():
+                if score == top_score:
+                    winners.append(user)
+                else:
+                    losers.append(user)
+                # Increment user's gold amounts in the database.
+                self.bot.database.user_add_gold(user, score)
 
-        # Add the scores for everyone else.
-        if len(losers) > 0:
-            text += "Losers:\n"
-            for user in losers:
-                text += " -- {} got {} correct (**{}** gold)\n".format(
-                    user.display_name,
-                    self.correct_answers[user],
-                    self.scores[user]
+            # If there are no winners, everybody lost!
+            if len(winners) == 0:
+                text = "Everybody lost!"
+
+            # Single winner.
+            elif len(winners) == 1:
+                text = "Winner: **{}** earned **{}** gold with {} answers!\n".format(
+                    winners[0].display_name,
+                    top_score,
+                    self.correct_answers[winners[0]]
                 )
+
+            # Multiple winners!
+            else:
+                text = f"It's a tie! The following players earned **{top_score}** gold:\n"
+                for winner in winners:
+                    text += " -- {}\n".format(winner)
+
+            # Add the scores for everyone else.
+            if len(losers) > 0:
+                text += "Losers:\n"
+                for user in losers:
+                    text += " -- {} got {} correct (**{}** gold)\n".format(
+                        user.display_name,
+                        self.correct_answers[user],
+                        self.scores[user]
+                    )
 
         # Send the game over message.
         message = await plomcord.send_embed(
             channel=self.channel,
             title="Shopkeeper's Quiz Results",
             text=text,
-            thumbnail=SHOPKEEPER_IMAGE,
+            thumbnail=thumbnail,
             footer=f"To play again, press NEW or type /quiz"
         )
         await message.add_reaction("🆕")
