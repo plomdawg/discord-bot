@@ -118,7 +118,7 @@ class DotaVoiceLinesCog(commands.Cog):
             music_channel = self.bot.get_channel(int(408481491597787136))
             if message.channel != music_channel:
                 await message.delete()
-                warning = f"{message.author.mention} wrong channel - forwaring to {music_channel.mention}"
+                warning = f"{message.author.mention} wrong channel - forwarding to {music_channel.mention}"
                 warning_message = await plomcord.send_embed(channel=text_channel, text=warning)
                 text_channel = self.bot.get_channel(int(408481491597787136))
 
@@ -126,9 +126,9 @@ class DotaVoiceLinesCog(commands.Cog):
         await plomcord.send_embed(channel=text_channel, text=text, thumbnail=thumbnail, footer=footer)
         await self.audio.play_url(url, message.author.voice.channel)
 
-        # Delete our own message in 30 seconds.
+        # Delete our own message in 10 seconds.
         if warning_message is not None:
-            await asyncio.sleep(30)
+            await asyncio.sleep(10)
             await warning_message.delete()
 
     def get_voice_responses(self, exact_text=None, text=None, index=None, name=None):
